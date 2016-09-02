@@ -1,0 +1,52 @@
+<html lang="ja">
+
+<head>
+    </head>
+    <meta charset="utf-8">
+    
+    <div>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+        google.load('visualization', '1', {
+            packages: ['table']
+        });
+        google.setOnLoadCallback(drawTable);
+
+        function drawTable() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', '業態');
+            data.addColumn('string', '車種');
+            data.addColumn('number', '燃料消費量（ kℓ 、千㎥ ');
+            data.addColumn('number', '走行キロ（千km）');
+            data.addColumn('number', '走行1km当たり燃料消費（ℓ/km）');
+            data.addColumn('number', '1日1車当たり走行キロ(km/日)');
+
+            data.addRows([
+            ['営業用', '普通・小型・特種車', 73299, 499907, 0.147, 30.51],
+            ['営業用', '軽自動車', 526127, 5698236, 0.092, 65.92],
+            ['営業用', 'バス・乗用車', 176157, 1415224, 0.124, 92.51],
+            ['自家用', '普通車', 173257, 1141767, 0.152, 22.62],
+            ['自家用', '小型車', 2488305, 　23018330, 0.108, 36.08],
+            ['自家用', '軽自動車', 5933876, 72026003, 0.082, 22.82],
+            ['自家用', 'バス・特種車', 406176, 2492479, 0.163, 24.02],
+            ['自家用', '普通車', 13395446, 115735940, 0.116, 21.97],
+            ['自家用', '小型車', 14334923, 164798074, 0.087, 22.53],
+            ['自家用', '乗用車（ハイブリッド）', 3095976, 48023114, 0.064, 31.45],
+            ['自家用', '軽自動車', 11588865, 156748300, 0.074, 20.72]
+        ]);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+            table.draw(data, {
+                showRowNumber: true
+            });
+        }
+    </script>
+    </div>
+
+
+<body>
+    <div id="table_div" style="width: 100%; "></div>
+</body>
+
+</html>
